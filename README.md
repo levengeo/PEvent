@@ -17,9 +17,10 @@ public void showAge(final Bundle in, Bundle out) {
 ServiceManager.getInstance().publish(this);
 
 // Client
-PEvent pEvent = PEvent.newBuilder(MainActivity.this).setAuthority("com.pevent.example").build();
-Bundle bundle = pEvent.route("/show/age").withString("age", "20").post();
+PEvent pEvent = PEvent.newBuilder(MainActivity.this)
+                      .setAuthority("com.pevent.example")
+                      .build();
+Bundle bundle = pEvent.route("/show/age")
+                      .withString("age", "20")
+                      .post();
 
-## proguard
--keep class com.pevent.library.*
--dontwarn com.pevent.library.*
